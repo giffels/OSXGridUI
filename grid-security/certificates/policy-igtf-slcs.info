@@ -1,0 +1,15 @@
+# @(#)policy-igtf-slcs.info - IGTF slcs authorities
+# Generated Monday, 24 Mar, 2014
+version = 1.56
+requires = NCSA-slcs-2013 = 1.56, \
+    DFN-SLCS = 1.56, \
+    PSC-Myproxy-CA = 1.56, \
+    FNAL-SLCS = 1.56, \
+    NCSA-tfca-2013 = 1.56, \
+    NICS-MyProxy = 1.56, \
+    NCSA-slcs = 1.56, \
+    NERSC-SLCS = 1.56, \
+    NCSA-tfca = 1.56
+obsoletes = SWITCHslcs, \
+    ncsa-gridshib-ca, \
+    SWITCHslcs2011

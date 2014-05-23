@@ -1,0 +1,9 @@
+# @(#)policy-igtf-mics.info - IGTF mics authorities
+# Generated Monday, 24 Mar, 2014
+version = 1.56
+requires = AAACertificateServices = 1.56, \
+    cilogon-silver = 1.56, \
+    TERENAeSciencePersonalCA = 1.56, \
+    UTNAAAClient = 1.56, \
+    NCSA-mics = 1.56
+obsoletes = TACC-MICS
