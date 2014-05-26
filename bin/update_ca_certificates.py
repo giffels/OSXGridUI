@@ -1,4 +1,4 @@
-#!usr/bin/env python
+#!/usr/bin/env python
 #    Installation and configuration of a Grid UI on Mac OS X
 #
 #    Copyright (C) 2014  Manuel Giffels <giffels@gmail.com>
@@ -16,24 +16,16 @@
 #    You should have received a copy of the GNU General Public License along
 #    with this program; if not, write to the Free Software Foundation, Inc.,
 #    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+from osxgridui.tools import get_ca_cert_tarball
+from osxgridui.tools import get_etc_path
+from osxgridui.tools import unpack_tarball
 
-from distutils.core import setup
-import glob
 import os
 
-
-def get_data_files(start_dir):
-    for dirpath, dirnames, filenames in os.walk(start_dir):
-        yield (os.path.join(dirpath, ''),
-               [os.path.join(dirpath, filename) for filename in filenames])
-
-
-setup(name = 'OSXGridUI',
-      version = '0.1',
-      author = 'Manuel Giffels',
-      author_email = 'giffels@gmail.com',
-      description = 'Installation and configuration of a Grid UI on Mac OS X',
-      url = 'https://github.com/giffels/OSXGridUI',
-      data_files = list(get_data_files('etc')) + list(get_data_files('bin')),
-      packages=['osxgridui'],
-      package_dir={'': 'src/python'})
+if __name__ == '__main__':
+    ###install ca certificates
+    etc_path = get_etc_path()
+    grid_security_path = os.path.join(etc_path, 'grid-security')
+    if not os.path.exists(grid_security_path):
+        os.mkdir(grid_security_path)
+    unpack_tarball(url=get_ca_cert_tarball(), path=grid_security_path)
